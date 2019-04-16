@@ -1,4 +1,4 @@
-/*TANK DRIVE (also called DIFFERENTIAL DRIVE)
+/*TANK DRIVE
     DESCRIPTION:
       The robot uses two joysticks to control movement. Each joystick controls the forward and backward motion of one side of the robot.
       To turn, push one stick forward and the other one back.
