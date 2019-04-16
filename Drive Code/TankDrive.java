@@ -30,6 +30,10 @@ public class Robot extends IterativeRobot {
   private final SpeedController driveMotorBR = new SpeedController(2);
   private final SpeedController driveMotorBL = new SpeedController(3);
 
+  //Speed Controller can be grouped
+
+  private final SpeedControllerGroup rightDriveTrain = new SpeedControllerGroup(driveMotorFR,driveMotorBR);
+  private final SpeedControllerGroup leftDriveTrain = new SpeedControllerGroup(driveMotorFL,driveMotorBL);
 
   //Declare each joystick, the argument is the connected USB port on the drive station computer
   
@@ -62,10 +66,8 @@ public class Robot extends IterativeRobot {
   
     //Exponential Tank Drive
   
-    driveMotorFR.set(RStick.getY());
-    driveMotorBR.set(RStick.getY());
-    driveMotorFL.set(LStick.getY());
-    driveMotorBL.set(LStick.getY());
+    rightDriveTrain.set(RStick.getY());
+    leftDriveTrain.set(LStick.getY());
   }
 
 
