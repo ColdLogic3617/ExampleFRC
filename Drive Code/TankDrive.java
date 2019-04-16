@@ -73,16 +73,37 @@ public class Robot extends IterativeRobot {
   public void testPeriodic() {
   
     //Linear Tank Drive
-    
+        //Right Side
     if (RStick.getY() > 0) {
       //forward half speed
       driveMotorFR.set(0.5);
       driveMotorBR.set(0.5);
     }
     else if (RStick.getY() < 0) {
-      //more to come
+      //backward harlf speed
+      driveMotorFR.set(0.5);
+      driveMotorBR.set(0.5);
     }
     else {
+      //stop
+      driveMotorFR.set(0.0);
+      driveMotorBR.set(0.0);
+    }
+        //Left Side
+    if (LStick.getY() > 0) {
+      //forward half speed
+      driveMotorFL.set(0.5);
+      driveMotorBL.set(0.5);
+    }
+    else if (LStick.getY() < 0) {
+      //backward harlf speed
+      driveMotorFL.set(0.5);
+      driveMotorBL.set(0.5);
+    }
+    else {
+      //stop
+      driveMotorFL.set(0.0);
+      driveMotorBL.set(0.0);
     }
   }
 }
