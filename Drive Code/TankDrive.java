@@ -40,6 +40,8 @@ public class Robot extends IterativeRobot {
   private final Joystick RStick = new Joystick(0);
   private final Joystick LStick = new Joystick(1);
 
+  //Declare the Differential Drive object, requires 2 Speed Controller Groups - left then right
+  private final DifferentialDrive driveTrain = new DifferentialDrive(leftDriveTrain,rightDriveTrain);
 
   @Override
   public void robotInit() {
@@ -58,6 +60,10 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void autonomousPeriodic() {
+      
+      //Differential Drive Object, arguments are leftSpeed and rightSpeed
+      
+      driveTrain.tankDrive(LStick.getY(),RStick.getY());
   }
 
 
