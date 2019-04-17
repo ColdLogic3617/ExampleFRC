@@ -28,6 +28,11 @@ public class Robot extends IterativeRobot {
   private final SpeedController driveMotorFL = new SpeedController(1);
   private final SpeedController driveMotorBR = new SpeedController(2);
   private final SpeedController driveMotorBL = new SpeedController(3);
+    
+  //Motor controllers can be grouped using a SpeedControllerGroup object
+  
+  private final SpeedControllerGroup leftDriveTrain = new SpeedControllerGroup(driveMotorFL,driveMotorBL);
+  private final SpeedControllerGroup rightDriveTrain = new SpeedControllerGroup(driveMotorFR,driveMotorBR);
 
 
   //Declare each joystick, the argument is the connected USB port on the drive station computer
@@ -65,14 +70,39 @@ public class Robot extends IterativeRobot {
 
       //Exponential Arcade Drive
 
-      driveMotorFR.set(RStick.getY() + RStick.getX());
-      driveMotorFL.set(-RStick.getY() + RStick.getX());
-      driveMotorBR.set(RStick.getY() + RStick.getX());
-      driveMotorBL.set(-RStick.getY() + RStick.getX());
+      leftDriveTrain.set(RStick.getY() + RStick.getX());
+      rightDriveTrain.set(-RStick.getY() + RStick.getX());
   }
 
 
   @Override
   public void testPeriodic() {
+      
+      //Linear Arcade Drive
+      
+      if (RStick.getY() > 0) {
+          //Forward, half speed
+          leftDriveTrain.set(0.5);
+          rightDriveTrain.set(0.5);
+      }
+      else if (RStick.getX() > 0) {
+          //Turn right, half speed
+          leftDriveTrain.set(0.5);
+          rightDriveTrain.set(-0.5);
+      }
+      else if (RStick.getX() < 0) {
+          //Turn left, half speed
+          leftDriveTrain.set(-0.5);
+          rightDriveTrain.set(0.5);
+      }
+      else if (RStick.getY() < 0) {
+          //Backward, half speed
+          leftDriveTrain.set(-0.5);
+          rightDriveTrain.set(-0.5);
+      }
+      else {
+          leftDriveTrain.stopMotor();
+          rightDriveTrain.stopMotor();
+      }
   }
 }
