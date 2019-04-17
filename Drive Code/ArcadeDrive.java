@@ -62,6 +62,11 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void autonomousPeriodic() {
+      
+      //Differential Drive Object, arguments are speed and rotation
+        //You can also set the SquareInputs flag if using a directional pad (add a third arguement of true)
+      
+      driveTrain.arcadeDrive(RStick.getY(), RStick.getX());
   }
 
 
