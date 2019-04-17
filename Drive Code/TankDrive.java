@@ -62,6 +62,7 @@ public class Robot extends IterativeRobot {
   public void autonomousPeriodic() {
       
       //Differential Drive Object, arguments are leftSpeed and rightSpeed
+        //You can also set the SquareInputs flag if using a directional pad (add a third arguement of true)
       
       driveTrain.tankDrive(LStick.getY(),RStick.getY());
   }
