@@ -9,7 +9,13 @@ public class Robot extends IterativeRobot {
   
   //Declare your joystick(s), the argument is the USB port the stick is plugged into
   
-  private final Joystick driveStick = new Joystick(1);
+  private final Joystick buttonStick = new Joystick(1);
+  private final Joystick driveStick = new Joystick(2);
+  
+  
+  //Declare the buttons, the argument is the number of the button on the joystick (usually physically labeled)
+  
+  private final JoystickButton exampleButton = new JoystickButton(12);
   
   
   //See "Drive Code" for details on setting up the drive train
