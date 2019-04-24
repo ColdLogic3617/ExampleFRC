@@ -37,15 +37,22 @@ public class MultiController {
 
 
     public boolean getButtonPressed(int buttonNumber) {
-        GenericHID controller = controllerList.get(currentController);
-        if (controller instanceof XBoxController) {
-            if (buttonNumber == 1) {
-                return controller.getTriggerAxis(Hand.kRight);
-            }
-            if (buttonNumber == 2) {
+        return controllerList.get(currentController).getRawButton(buttonNumber);
+    }
 
-            }
-        }
+
+    public double getX() {
+        return controllerList.get(currentController).getX();
+    }
+    public double getX(GenericHID.Hand hand) {
+        return controllerList.get(currentController).getX(hand);
+    }
+
+    public double getY() {
+        return controllerList.get(currentController).getY();
+    }
+    public double getY(GenericHID.Hand hand) {
+        return controllerList.get(currentController).getY(hand);
     }
 
 }
