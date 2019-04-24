@@ -14,10 +14,16 @@ public class MultiController {
 
     private String[] buttonMap = {"","Trigger"}
 
-    public MultiController (GenericHID[] controllerList) {
+    MultiController () {}
+    MultiController (GenericHID[] controllerList) {
         for (GenericHID controller : controllerList) {
             this.controllerList.add(controller);
         }
+    }
+
+
+    public void add(GenericHID controller) {
+        controllerList.add(controller);
     }
 
 
@@ -55,4 +61,5 @@ public class MultiController {
         return controllerList.get(currentController).getY(hand);
     }
 
+}
 }
