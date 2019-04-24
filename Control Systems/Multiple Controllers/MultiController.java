@@ -60,6 +60,4 @@ public class MultiController {
     public double getY(GenericHID.Hand hand) {
         return controllerList.get(currentController).getY(hand);
     }
-
-}
 }
