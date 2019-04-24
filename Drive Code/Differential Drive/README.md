@@ -1,4 +1,5 @@
 Differential Drive - two motors on either side of the robot are connected by a gearbox. They turn opposite directions to spin the axel that turns the wheels.
+Documentation: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.html
 
 Arcade Drive (also called "West Coast Drive") - the robot utilizes a single joystick as a drive controller. The y-axis of the joystick represents the forward/backward motion and the x-axis represents the robots rotation.
 
