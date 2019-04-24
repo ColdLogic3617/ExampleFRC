@@ -60,4 +60,56 @@ public class MultiController {
     public double getY(GenericHID.Hand hand) {
         return controllerList.get(currentController).getY(hand);
     }
+
+
+    public boolean getTrigger() {
+        GenericHID controller = controllerList.get(currentController);
+        if (controller instanceof XBoxController) {
+            return controller.getTriggerAxis(Hand.kRight);
+        }
+        return controller.getRawButton(1);
+    }
+    public boolean getTrigger(GenericHID.hand hand) {
+        GenericHID controller = controllerList.get(currentController);
+        if (controller instanceof Joystick) {
+            return controller.getRawButton(1);
+        }
+        return controller.getTriggerAxis(hand);
+    }
+
+
+    public boolean getBumper() {
+        GenericHID controller = controllerList.get(currentController);
+        if (controller instanceof XBoxController) {
+            return controller.getBumper(Hand.kRight);
+        }
+        return controller.getRawButton(2);
+    }
+    public boolean getTrigger(GenericHID.hand hand) {
+        GenericHID controller = controllerList.get(currentController);
+        if (controller instanceof Joystick) {
+            return controller.getRawButton(1);
+        }
+        return controller.getBumper(hand);
+    }
+
+
+    public boolean getAButton() {
+        return controllerList.get(currentController).getRawButton(1);
+    }
+    public boolean getBButton() {
+        return controllerList.get(currentController).getRawButton(2);
+    }
+    public boolean getYButton() {
+        return controllerList.get(currentController).getRawButton(3);
+    }
+    public boolean getXButton() {
+        return controllerList.get(currentController).getRawButton(4);
+    }
+    public boolean getStartButton() {
+        return controllerList.get(currentController).getRawButton(7);
+    }
+    public boolean getBackButton() {
+        return controllerList.get(currentController).getRawButton(8);
+    }
 }
